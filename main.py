@@ -14,7 +14,7 @@ class myHandler(BaseHTTPRequestHandler):
         self.end_headers()
         # Send the html message
         self.wfile.write(bytes("<html><head><title>Title goes here.</title></head>", "utf-8"))
-        self.wfile.write(bytes("<body><p>This is a test.</p>", "utf-8"))
+        self.wfile.write(bytes("<body><p>This is a version 2.</p>", "utf-8"))
         self.wfile.write(bytes("<p>You accessed path: %s</p>" % self.path, "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
         self.wfile.flush()
@@ -23,7 +23,7 @@ class myHandler(BaseHTTPRequestHandler):
 try:
     #Create a web server and define the handler to manage the
     #incoming request
-    server = HTTPServer(('', PORT_NUMBER), myHandler)
+    server = HTTPServer(('0.0.0.0', PORT_NUMBER), myHandler)
     print('Started httpserver on port ' , PORT_NUMBER)
 
     #Wait forever for incoming htto requests
